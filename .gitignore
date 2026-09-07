@@ -1,0 +1,16 @@
+# Secrets
+.env
+.env.*
+*-key.json
+*-credentials.json
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
