@@ -1,5 +1,5 @@
 from video_performance import video_performance
-
+import logging
 # Accented names are the auth keys (auth.py); video_performance normalizes
 # them to plain ASCII before writing to BigQuery.
 brands = [
@@ -32,8 +32,12 @@ brands = [
 # 5. Test on Cloud Run with time trigger
 
 def main():
+    failed = []
     for brand in brands:
         print("Brand: ", brand)
-        video_performance(brand)
-
+        try:
+            video_performance(brand)
+        except Exception as e:
+            failed.append(brand)
+            logging.exception(f"Brand failed: {brand} : {e}")
 main()

@@ -236,4 +236,6 @@ def video_performance(brand):
     df_aug_cleaned = df_aug[posted_by_then & ((df_aug['gmv'] > 0) | (vpt >= cutoff))]
     df_aug_cleaned = df_aug_cleaned.drop(columns='creator')
 
+    print("Start merging")
+   
     merge(df_aug_cleaned)
